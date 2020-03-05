@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import { Button, ButtonToolbar, Navbar, Nav, NavDropdown, Form, FormControl, Container, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 export const ControlButtons = () => {
@@ -34,7 +34,7 @@ export function ToggleButtonGroupControlled() {
       <ToggleButton value={3}>Other</ToggleButton>
     </ToggleButtonGroup>
   );
-}
+};
 
 export const Navbars = () => {
   return(
