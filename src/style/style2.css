@@ -58,7 +58,9 @@ body {
     justify-content: center;
 }
 #lyrics{
-    height: auto
+    height: auto;
+    
+
 }
 .hide {
     display: none;

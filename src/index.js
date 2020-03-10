@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Navbars} from './Boots.js';
+import {Navbars} from './Bootstrap_Elements.js';
 import {Dashboard} from './Dash.js';
 
 
