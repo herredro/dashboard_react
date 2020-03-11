@@ -1,38 +1,58 @@
 import React, { useState, useEffect }  from "react";
 import { Spinner } from 'react-bootstrap';
 
+// each component gets its own file
+import DashNav from './DashNav'
+import MapContainer from './MapContainer'
 
 export function Dashboard() {
-  // The Dashboard calls the components Dashes (the content) & Controls (Togglers for showing/hiding content)
-  // Problem: Both Child Components are only able to sync when the state that is passed from "Dashboard" is a single, simple variable.
-  //          When State-Object is used: toggle function activates, changes the state, but Dashes Component is not updated...
 
-  // Version State-Object (does not work)
-  const [state, setState] = useState({maps: true, lyrics: true, others: true});
-  function objToggle() {
-    Object.assign(state, {lyrics:!state.lyrics})
-    setState(state)
-    console.log(state)
+  // we set one state for the current focus of the dashboard
+  const [focus, setFocus] = useState('maps');
+
+  // this handles what happens once we get a callback
+  let switchFocus = (content) => {
+    // in our case, this changes the state of the component
+    setFocus(content)
   }
 
-  // Version State-Variable (works)
-  let [lyrics, setLyrics] = useState(true);
-  function varToggle (){
-    setLyrics(!lyrics)
-    console.log(lyrics)
+  // we set a variable for what should be rendered depending on the state
+  let content = (<div>
+    {/*  This is where the content is shown, e.g. the Map */}
+  </div>);
+
+  // with each state change the component gets re-rendered
+  switch(focus){
+    case 'maps':
+      content = <MapContainer />
+      break;
+    case 'lyrics':
+      content = <Lyrics />
+      break;
+    default:
+      content = <div>This dash element is not implemented yet</div>
+      break;
   }
 
-
+  // and finally render it here
   return(
-    // Controls gets passed the toggle (i.e. setState) function, Dashes gets passed the state value
     <div id="main" className="main">
-      <Controls toggle={objToggle}/>
-      <Dashes show={state.lyrics}/>
+      <DashNav
+        focus={focus}
+        callBack={(evt) => setFocus(evt)} />
+      <h2 style={{'fontSize':'3em'}}>
+        {focus}
+      </h2>
+      {content}
     </div>
   )
 }
 
 
+
+
+
+// deprecated
 function Controls(props) {
     return(
       // Lyrics button gets the toggle function to "setState" of lyrics.
@@ -58,7 +78,7 @@ function Dashes(props) {
 function Lyrics(props) {
   return(
     // Show only when props.show == true
-    <div id="lyrics" className={props.show ? 'show': 'hide'} >
+    <div id="lyrics">
       <form id="formm">
         <h3>Search for Lyrics</h3>
         Artist: <input type="text" id="inputartist" />
@@ -70,13 +90,3 @@ function Lyrics(props) {
 }
 
 
-function Maps(props) {
-  let returner = (
-    <div
-      id="map"
-      // currently maps is always showing
-      style={{ display: (true ? 'block' : 'none') }}>
-        <Spinner animation="border" variant="primary" />
-    </div>)
-  return(returner)
-}

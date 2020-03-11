@@ -16,15 +16,12 @@ function fetchLyrics(){
 }
 
 window.onload = function () {
-    console.log('External: onload fired');
+  console.log('External: onload fired');
 
 
-    lyricsOut.onclick = fetchLyrics
+  // lyricsOut.onclick = fetchLyrics
 
-    data.fetchGeo();
-
-
-
+  data.fetchGeo();
 };
 
 

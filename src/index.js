@@ -6,10 +6,10 @@ import {Dashboard} from './Dash.js';
 
 
 
-  ReactDOM.render(
-    <div>
-      <Navbars />
-      <Dashboard />
-    </div>,
-    document.getElementById("app")
-  );
+ReactDOM.render(
+  <div>
+    <Navbars />
+    <Dashboard />
+  </div>,
+  document.getElementById("app")
+);
