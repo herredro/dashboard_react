@@ -3,9 +3,11 @@ import React from "react";
 import './DashNav.css'
 
 function DashNav(props) {
-
   let classes = ["DashNav"];
+  // console.log(classes);
+
   classes.push(props.className);
+  // console.log(classes);
 
   // here the function is declared what happens when clicked
   let clickHandler = (info) => {
@@ -22,7 +24,7 @@ function DashNav(props) {
   // each button gets the handlerFn onClick
   return(
     <div className={classes.join(' ')}>
-      <button onClick={() => {clickHandler('maps')}}>Maps</button>
+      <button onClick={() => {props.callBack('maps')}}>Maps</button>
       <button onClick={() => {clickHandler('lyrics')}}>Lyrics</button>
       <button onClick={() => {clickHandler('others')}}>Others</button>
     </div>
