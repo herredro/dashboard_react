@@ -14,9 +14,13 @@ import regeneratorRuntime from "regenerator-runtime";
 import './MapContainer.css'
 
 let MapContainer = (props) => {
-
+  console.log(classes);
   let classes = ["MapContainer"];
+
+  console.log(classes);
   classes.push(props.className);
+
+  console.log(classes);
 
   // I add all relevant functions and variables to the specific component to keep track of where everything lies
   const position = [51.505, -0.09];
@@ -28,10 +32,9 @@ let MapContainer = (props) => {
   // using an empty array here, means basically once the component is mounted, otherwise we can force a rerender evertime a variable changes
 
   return(
-    // Lyrics button gets the toggle function to "setState" of lyrics.
     <div
      id="map"
-      className={classes.join(' ')}>
+     className={classes.join(' ')}>
       <Spinner animation="border" variant="primary" />
     </div>
   )

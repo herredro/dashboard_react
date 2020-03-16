@@ -4,11 +4,12 @@ import { Spinner } from 'react-bootstrap';
 // each component gets its own file
 import DashNav from './DashNav'
 import MapContainer from './MapContainer'
+import {LyricContainer, LyricForm} from './LyricContainer'
 
 export function Dashboard() {
 
   // we set one state for the current focus of the dashboard
-  const [focus, setFocus] = useState('maps');
+  const [focus, setFocus] = useState('lyrics');
 
   // this handles what happens once we get a callback
   let switchFocus = (content) => {
@@ -27,7 +28,7 @@ export function Dashboard() {
       content = <MapContainer />
       break;
     case 'lyrics':
-      content = <Lyrics />
+      content = <LyricForm />
       break;
     default:
       content = <div>This dash element is not implemented yet</div>
@@ -75,18 +76,16 @@ function Dashes(props) {
   )
 }
 
-function Lyrics(props) {
-  return(
-    // Show only when props.show == true
-    <div id="lyrics">
-      <form id="formm">
-        <h3>Search for Lyrics</h3>
-        Artist: <input type="text" id="inputartist" />
-        Title: <input type="text" id="inputtitle" />
-        <div id="lyricsOut">SUBMIT</div>
-      </form>
-    </div>
-  )
-}
-
-
+// function Lyrics(props) {
+//   return(
+//     // Show only when props.show == true
+//     <div id="lyrics">
+//       <form id="formm">
+//         <h3>Search for Lyrics</h3>
+//         Artist: <input type="text" id="inputartist" />
+//         Title: <input type="text" id="inputtitle" />
+//         <div id="lyricsOut">SUBMIT</div>
+//       </form>
+//     </div>
+//   )
+// }
