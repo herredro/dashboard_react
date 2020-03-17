@@ -50,16 +50,16 @@ body {
     height: 300;
     margin: 10px
 }
-#map {
+/*#map {
     height: 500px;
     width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+}*/
 #lyrics{
     height: auto;
-    
+
 
 }
 .hide {

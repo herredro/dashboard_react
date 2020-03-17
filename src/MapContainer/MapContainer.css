@@ -1,3 +1,25 @@
 .MapContainer {
   background: rgba(0,0,0,0.1);
+  height: 500px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.5s;
+}
+
+
+.MapContainer.active {
+
+}
+
+
+.mapSpinner {
+  transition: all 0.5s;
+}
+
+.MapContainer.active .mapSpinner {
+  transform: scale(3);
+  opacity: 0;
 }

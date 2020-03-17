@@ -18,6 +18,14 @@ let MapContainer = (props) => {
   let classes = ["MapContainer"];
   classes.push(props.className);
 
+  const [isActive, setIsActive] = useState(0);
+
+  console.log(isActive)
+
+  if(isActive){
+    classes.push('active');
+  }
+
   // I add all relevant functions and variables to the specific component to keep track of where everything lies
   const position = [51.505, -0.09];
 
@@ -27,12 +35,19 @@ let MapContainer = (props) => {
   }, [])
   // using an empty array here, means basically once the component is mounted, otherwise we can force a rerender evertime a variable changes
 
+
+  let onClickHandler = () => {
+    console.log('clicked');
+    setIsActive( !isActive );
+  }
+
   return(
     // Lyrics button gets the toggle function to "setState" of lyrics.
     <div
      id="map"
-      className={classes.join(' ')}>
-      <Spinner animation="border" variant="primary" />
+      className={classes.join(' ')}
+      onClick={onClickHandler}>
+      <Spinner className="mapSpinner" animation="border" variant="primary" />
     </div>
   )
 }
